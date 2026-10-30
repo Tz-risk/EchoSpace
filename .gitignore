@@ -1,0 +1,22 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python bytecode & packaging
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Test & local runtime state
+.testhome/
+.pytest_cache/
+.ruff_cache/
+
+# OS metadata
+.DS_Store
+Thumbs.db

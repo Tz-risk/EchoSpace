@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "echoscape"
+version = "1.0.0"
+description = "EchoScape — an interactive terminal ambient sound mixer and focus suite."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Om Patel", email = "om1806patel@gmail.com" }
+]
+requires-python = ">=3.10"
+keywords = [
+    "terminal",
+    "tui",
+    "ambient",
+    "soundboard",
+    "white-noise",
+    "pomodoro",
+    "focus",
+    "relaxation",
+    "textual",
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Mixers",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "textual>=1.0",
+    "pygame>=2.5",
+    "numpy>=1.24",
+]
+
+[project.scripts]
+echoscape = "echoscape.__main__:main"
+soundboard = "echoscape.__main__:main"
+
+[tool.setuptools]
+packages = ["echoscape"]
+
+[tool.setuptools.package-data]
+echoscape = ["*.tcss"]

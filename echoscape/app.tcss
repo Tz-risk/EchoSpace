@@ -1,0 +1,304 @@
+/* EchoScape — dark, calm, indigo/violet/pink accents */
+
+Screen {
+    background: #09090d;
+    layers: base overlay;
+}
+
+/* ───────────────────────────── top bar */
+#topbar {
+    height: 3;
+    padding: 1 2 0 2;
+    background: #0e0e15;
+    border-bottom: hkey #1d1d29;
+}
+#brand { width: 1fr; }
+#status { width: auto; text-align: right; }
+
+/* ───────────────────────────── body */
+#body { height: 1fr; }
+
+#sidebar {
+    width: 26;
+    padding: 1 1 0 1;
+    background: #0c0c12;
+    border-right: vkey #1a1a24;
+}
+.side-label {
+    color: #5b5b6b;
+    text-style: bold;
+    padding: 0 1;
+    margin-bottom: 1;
+}
+#nav {
+    height: 1fr;
+    background: transparent;
+    border: none;
+    padding: 0;
+    scrollbar-size: 0 0;
+}
+#nav:focus { border: none; }
+#nav > .option-list--option { padding: 0 1; }
+#nav > .option-list--option-highlighted {
+    background: #1e1b4b;
+    text-style: bold;
+}
+#nav:focus > .option-list--option-highlighted { background: #312e81; }
+#side-foot {
+    height: auto;
+    padding: 1 1;
+    border-top: hkey #1a1a24;
+}
+
+/* ───────────────────────────── main sound grid */
+#main { width: 1fr; padding: 0 1; }
+
+#search {
+    margin: 1 1 0 1;
+    border: round #3730a3;
+    background: #111118;
+}
+#search:focus { border: round $primary; }
+
+#sounds {
+    height: 1fr;
+    padding: 0 1 1 1;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: #2a2a3a;
+    scrollbar-color-hover: #3f3f5a;
+    scrollbar-color-active: $primary;
+    scrollbar-background: #0b0b10;
+}
+
+.section { height: auto; }
+.section-title {
+    height: auto;
+    padding: 1 1 0 1;
+    margin-bottom: 1;
+}
+
+ItemGrid {
+    grid-gutter: 0 1;
+    height: auto;
+}
+
+SoundCard {
+    height: 5;
+    padding: 0 1;
+    border: round #22222e;
+    background: #0f0f15;
+}
+SoundCard:hover {
+    background: #13131c;
+    border: round #34344a;
+}
+SoundCard.-selected {
+    background: #14132a;
+    border: round #6d28d9;
+}
+SoundCard.-busy { border: round #3730a3; }
+SoundCard.-error { border: round #7f1d1d; }
+SoundCard:focus {
+    border: round $primary;
+    background: #17163a;
+}
+SoundCard.-selected:focus {
+    border: heavy #c084fc;
+    background: #1b1840;
+}
+
+#no-results {
+    color: #5b5b6b;
+    padding: 2 1;
+    text-align: center;
+    width: 100%;
+}
+
+/* ───────────────────────────── right panel */
+#right {
+    width: 42;
+    padding: 1 1 0 0;
+}
+
+#now-panel, #mix-list, #tools {
+    border: round #262636;
+    border-title-color: #8b8bb0;
+    border-title-style: bold;
+    background: #0e0e15;
+    padding: 0 1;
+}
+#now-panel { height: auto; }
+#now-panel:focus-within { border: round #4338ca; }
+
+#viz {
+    height: 8;
+    margin: 1 0 0 0;
+}
+#play-state {
+    height: 1;
+    margin: 1 0 1 0;
+}
+
+#controls, #controls2 {
+    height: 1;
+    margin-bottom: 1;
+}
+#controls Button, #controls2 Button {
+    width: 1fr;
+    min-width: 0;
+    margin: 0 1 0 0;
+    background: #1b1b28;
+    color: #d4d4e4;
+    text-style: bold;
+}
+#controls Button:hover, #controls2 Button:hover { background: #2a2a40; }
+#controls Button:focus, #controls2 Button:focus { background: #3730a3; }
+#btn-play { background: #312e81; }
+#btn-play.-playing { background: #14532d; }
+
+MixerRow {
+    height: 2;
+    margin-bottom: 1;
+    padding: 0 0;
+}
+MixerRow:focus { background: #17163a; }
+MixerRow.-master { margin: 0 0 1 0; }
+
+#mix-list {
+    height: 1fr;
+    margin-top: 1;
+    padding: 1 1 0 1;
+    scrollbar-gutter: stable;
+    scrollbar-size-vertical: 1;
+    scrollbar-color: #2a2a3a;
+}
+#mix-list:focus-within { border: round #4338ca; }
+#mix-empty {
+    color: #5b5b6b;
+    text-align: center;
+    padding: 1 0;
+}
+
+#tools {
+    height: auto;
+    margin-top: 1;
+    padding: 0 1;
+}
+#tools Button {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    color: #c4c4d4;
+    content-align: left middle;
+    text-align: left;
+    text-style: none;
+}
+#tools Button:hover { background: #1b1b28; color: #ffffff; }
+#tools Button:focus { background: #312e81; color: #ffffff; text-style: bold; }
+
+Footer { background: #0e0e15; }
+
+/* ───────────────────────────── modals */
+ModalScreen {
+    align: center middle;
+    background: #000000 65%;
+}
+
+.modal-panel {
+    width: 74;
+    height: auto;
+    max-height: 90%;
+    border: round $primary;
+    border-title-color: $primary;
+    background: #111118;
+    padding: 1 2;
+}
+.modal-title {
+    height: auto;
+    margin-bottom: 1;
+}
+
+.modal-panel OptionList {
+    height: auto;
+    max-height: 22;
+    background: #0d0d13;
+    border: round #262636;
+    padding: 0 1;
+}
+.modal-panel OptionList:focus { border: round $primary; }
+.modal-panel OptionList > .option-list--option-highlighted { background: #312e81; }
+.modal-panel Input {
+    margin-top: 1;
+    border: round #262636;
+    background: #0d0d13;
+}
+.modal-panel Input:focus { border: round $primary; }
+
+#help-panel { width: 70; }
+
+#sleep-panel { width: 56; }
+#sleep-status { height: 1; margin-bottom: 1; }
+
+#pomo-panel { width: 62; }
+#pomo-panel .modal-title { width: 100%; }
+#pomo-tabs {
+    height: 1;
+    width: 100%;
+    align: center middle;
+    margin-bottom: 1;
+}
+#pomo-tabs Button {
+    min-width: 15;
+    margin: 0 1;
+    background: #1b1b28;
+    color: #8a8a9a;
+}
+#pomo-tabs Button.-active {
+    background: #4338ca;
+    color: #ffffff;
+    text-style: bold;
+}
+#pomo-digits {
+    width: 100%;
+    text-align: center;
+    color: #e4e4ec;
+    margin: 1 0;
+}
+#pomo-progress { width: 100%; height: 1; text-align: center; }
+#pomo-info { width: 100%; height: 1; margin: 1 0; text-align: center; }
+#pomo-buttons { height: auto; width: 100%; align: center middle; }
+#pomo-buttons Button { margin: 0 1; min-width: 12; }
+
+#breath-panel {
+    width: 72;
+    height: 36;
+}
+#breath-select { height: 1; width: 100%; margin-bottom: 1; text-align: center; }
+#breath-circle { height: 1fr; width: 100%; }
+#breath-phase { height: 3; width: 100%; margin-top: 1; text-align: center; }
+
+#notes-panel {
+    width: 86;
+    height: 34;
+}
+#notes {
+    height: 1fr;
+    background: #0d0d13;
+    border: round #262636;
+}
+#notes:focus { border: round $primary; }
+#notes-stats { height: 1; margin-top: 1; text-align: right; }
+
+#todo-panel {
+    width: 70;
+    height: 30;
+}
+#todo-input { margin-top: 0; }
+#todo-list {
+    height: 1fr;
+    margin-top: 1;
+    background: #0d0d13;
+    border: round #262636;
+}
+#todo-list:focus { border: round $primary; }
+#todo-stats { height: 1; margin-top: 1; }
